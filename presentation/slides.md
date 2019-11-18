@@ -357,7 +357,15 @@ Using the meta-data variables, we re-evaluate our best predictions using meaning
 ---
 <!--- header: '📋 Conclusions and future work' --->
 
-- we did
-- we could have done
+## 💡 Text-as-data methods need NLP
+- Recipes don't take into account many NLP "dimensions"
+- Facilitating access to NLP tools and techniques might just be a good idea after all.
+
+## 🎨 🏗 LAP & LXF
+
+ølkjdfahskliujhdsfkljhdvfs
+
+## 💡 Talk of Norway
+foo bar
 
 ---
