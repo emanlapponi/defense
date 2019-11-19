@@ -42,9 +42,9 @@ size: 16:9
 
 > Given a sentence and a negation cue (**not**, -**less**, **without**), which tokens are negated?
 
-- If **{** he was **}** in the hospital and yet **not** **[** on the staff **]** he could only have been a house-surgeon or a house-physician.
+- If **{** he was **}** in the hospital and yet **not** **{** on the staff **}** he could only have been a house-surgeon or a house-physician.
 
-- ... and **no** **[** one could have escaped our notice **]**.
+- ... and **no** **{** one could have escaped our notice **}**.
 
 ---
 # Negation Scope Resolution (NSR)
@@ -184,7 +184,10 @@ Since the transitions have an effect on the model, experiment with more labels:
 
 ---
 
-# Fancellu et al.
+# 🧠 Neural Networks For Negation Scope Detection
+> ###### Fancellu et al., 2016
+
+# `todo`
 
 - show end-to-end architecture
 - make a point of how much more simple (and elegant/intuitive?) it is
@@ -206,11 +209,6 @@ Since the transitions have an effect on the model, experiment with more labels:
 - The problem with word vectors
 - Maybe something that LSTMs can solve?
 - enter deep contextualized embeddings
-
----
-
-# `todo`
-
 - ELMO paper
 - show smashed leaderboards
 - highlevel BERT, tractab. trick, caveats
@@ -226,10 +224,13 @@ Since the transitions have an effect on the model, experiment with more labels:
 
 ---
 
+#  ![width:60px](figures/bert.jpg) NegBERT: A Transfer Learning Approach for Negation Detection and Scope Resolution
+> ###### Khandelwal and Sawant, 2019
+
 # `todo`
 
 - preprint paper from 3 weeks ago: https://arxiv.org/pdf/1911.04211.pdf
-- show architecture, briefly explain the concept of fine tuning (lego analogy?)
+- show architecture, briefly explain the concept of tl/fine tuning (lego analogy?)
 - Show the improvement on sherlock holmes 2012 through 2019
 
 ---
