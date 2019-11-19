@@ -64,7 +64,7 @@ notice  NEGATED
 .
 ```
 
-<!--- _footer: '* Arguably, deep semantic parsing is an even _more_ natural fit 🤔' --->
+<!--- _footer: '* Arguably, deep semantic parsing is an even _more_ natural fit 🤔 Packard et al. 2014' --->
 
 ---
 <!--- _class: invert --->
@@ -107,7 +107,7 @@ The same as a normal word, but also:
 - a right/left distance from a negation cue: `5`
 - in a syntax (dependency) tree, a shortest path: `3`
 - and a very specific symbol to represent it: `UP-dobj-DOWN-nsubj-DOWN-dep`
-- Very, very sparse
+- Very, very sparse matrix
 
 ![bg right 90%](figures/notice-tree.png)
 
@@ -116,7 +116,7 @@ The same as a normal word, but also:
 # Then, give the matrix to the model
 
 Without diving into the specific, for intuition's sake:
-![width:600px](figures/crf.png)
+![width:600px ](figures/crf.png)
 
 ### Ah ha! One more thing
 
@@ -130,3 +130,112 @@ Since the transitions have an effect on the model, experiment with more labels:
 
 ![bg blur:8px](figures/wrecking-ball.jpg)
 
+---
+
+# Representation revisited
+
+- All the engineering in the 2012 system gets us little in the way of actual **meaning**
+- `house-surgeon` and `surgeon`
+- How shall we know the meaning of a word, Dr Firth?
+
+---
+
+
+# <!--- fit ---> You shall know the meaning of a word by the company it keeps
+
+![bg contrast blur](figures/firth.png)
+
+---
+
+# Word vectors
+
+- Randomly initialize one vector per word
+- Calculate a probability distribution of surrounding words (or the inverse)
+- Neural watershed moment in NLP
+
+![bg right 80%](figures/skipgram.png)
+
+---
+
+# `todo`
+
+- capture similarities (most similar)
+
+- linguistic properties (fast, fastest, good --> best)
+
+- for good and bad, society (some cool example)
+
+---
+
+# `todo`
+
+- these dense representations turn out to make an RNN arch, LSTMs, work pretty damn well
+- show a biLSTM animation going back and forward
+- Word vectors are good at basic representation, biLSTMs great at catching nonlinearities
+- like the w_i relation to a negated label, for instance
+
+---
+<!--- _paginate: false --->
+<!--- _class: invert --->
+
+## <!--- fit ---> 2016
+
+![bg blur:8px](figures/trump.png)
+
+---
+
+# Fancellu et al.
+
+- show end-to-end architecture
+- make a point of how much more simple (and elegant/intuitive?) it is
+- compare results with UIO2
+
+---
+
+<!--- _paginate: false --->
+<!--- _class: invert --->
+
+## <!--- fit ---> 2018
+
+![bg blur:8px](figures/zuck.png)
+
+---
+
+# `todo`
+
+- The problem with word vectors
+- Maybe something that LSTMs can solve?
+- enter deep contextualized embeddings
+
+---
+
+# `todo`
+
+- ELMO paper
+- show smashed leaderboards
+- highlevel BERT, tractab. trick, caveats
+
+---
+
+<!--- _paginate: false --->
+<!--- _class: invert --->
+
+## <!--- fit ---> 2019
+
+![bg blur:8px 150%](figures/greta.png)
+
+---
+
+# `todo`
+
+- preprint paper from 3 weeks ago: https://arxiv.org/pdf/1911.04211.pdf
+- show architecture, briefly explain the concept of fine tuning (lego analogy?)
+- Show the improvement on sherlock holmes 2012 through 2019
+
+---
+
+# `todo`
+
+- closing slide
+
+> "Everyone has Bert": now what?
