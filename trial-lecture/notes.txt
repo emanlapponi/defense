@@ -1,0 +1,8 @@
+in intro:
+
+define (redefine?) end to end
+look for definitions -- maybe contrasting ones -- on what end-to-end systems are
+
+end-to-end learning vs systems
+
+http://www.jmlr.org/papers/volume12/collobert11a/collobert11a.pdf
