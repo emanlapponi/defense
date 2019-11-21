@@ -17,25 +17,25 @@ size: 16:9
 > `@emanlapponi`
 
 ---
-## 🤔 from-what-end-to-what-end NLP systems?
+## 🤔 From-what-end-to-what-end NLP systems? And through what?
 
 - Depends where you are starting from! Text? Speech? A picture, maybe?
-
-- For non-research examples, you need not look further than your phone!
+- An end-to-end _system_ does not necessarily mean end-to-end _learning_
 
 ![bg right vertical](figures/translate.png)
 ![bg right vertical](figures/kindly.png)
 ![bg right vertical](figures/predictive.png)
 
 ---
-# ⚗️ End-to-end NLP experimental setups
+# ⚗️ End-to-end NLP "experimental setups"
 
-- Typically going from text to some specific task, e.g.:
+- NLP systems to advance the state of the art in NLP
     - Question answering `(question,text) -> offsets`
     - Sentiment analysis `text -> sentiment`
     - Named entity recognition `text -> (label,offsets)`
 
-- Today: NLP from 2012 to 2019, with Negation scope resolution 
+- Today: NLP systems from 2012 to 2019, with Negation scope resolution
+- Interesting case, as SOTA is moving _towards_ end-to-end learning 💡
 
 ---
 # 🕵🏻‍♂️ 🔎 Negation Scope Resolution (NSR)
@@ -49,7 +49,7 @@ size: 16:9
 ---
 # Negation Scope Resolution (NSR)
 
-A natural* fit for sequence labeling
+One way to think about it:
 
 ```txt
 ...
@@ -64,7 +64,7 @@ notice  NEGATED
 .
 ```
 
-<!--- _footer: '* Arguably, deep semantic parsing is an even _more_ natural fit 🤔 Packard et al. 2014' --->
+<!--- _footer: '* Arguably, deep semantic parsing is a better fit 🤔: Packard et al. 2014. But it is detrimental to our story line, and time is of the essence 😅 ❤️' --->
 
 ---
 <!--- _class: invert --->
@@ -101,7 +101,7 @@ A bunch of symbols: we decide what those symbols are, for instance:
 
 ---
 
-# What's a negated word?
+# What's the effect of a negation cue?
 
 The same as a normal word, but also:
 - a right/left distance from a negation cue: `5`
@@ -121,7 +121,21 @@ Without diving into the specific, for intuition's sake:
 ### Ah ha! One more thing
 
 Since the transitions have an effect on the model, experiment with more labels:
-`[O, CUE, N, S]` - counterintuitive, but does the trick
+`[O, MCUE, CUE, N, S]` - perhaps counterintuitive, but does the trick
+
+---
+# Where does it get us?
+
+- The best CRF feature soup for Negation in general, and the best system for exact scope match :tada:
+
+|   	      | Scope tokens F1	| Exact scope F1|
+|:----------: |----------------:|-------------:|
+| UiO2  	  | **83.73**       | **72.39**    |
+| UWashington | 83.51           | 71.81        |
+
+... by a small margin 🎚
+
+<!--- _footer: '😅 Abridged leaderboard, considering only CRF approaches and not sorting according to other evaluation dimensions.' --->
 
 ---
 <!--- _paginate: false --->
@@ -136,7 +150,7 @@ Since the transitions have an effect on the model, experiment with more labels:
 
 - All the engineering in the 2012 system gets us little in the way of actual **meaning**
 - `house-surgeon` and `surgeon`
-- How shall we know the meaning of a word, Dr Firth?
+- How shall we know the meaning of a word, Prof. Firth?
 
 ---
 
@@ -156,23 +170,43 @@ Since the transitions have an effect on the model, experiment with more labels:
 ![bg right 80%](figures/skipgram.png)
 
 ---
+# 🤯🤯🤯
 
-# `todo`
+**Good at capturing similarities/concepts**
+```python
+e.most_similar('sherlock_holmes')[:3]
 
-- capture similarities (most similar)
+# [('hercule_poirot', 0.808704137802124),
+#  ('miss_marple', 0.7863813638687134),
+#  ('fictional_detective', 0.7675886154174805)]
+```
+**Semantic algebra! Linguistic properties!**
+```python
+good = e['good']
+better = e['better']
+fast = e['fast']
+e.most_similar(
+    [better - good + fast]
+)[0]
 
-- linguistic properties (fast, fastest, good --> best)
-
-- for good and bad, society (some cool example)
+# ('faster', 0.7491286396980286)
+```
 
 ---
 
-# `todo`
+# LSTM RNNs
 
-- these dense representations turn out to make an RNN arch, LSTMs, work pretty damn well
-- show a biLSTM animation going back and forward
-- Word vectors are good at basic representation, biLSTMs great at catching nonlinearities
-- like the w_i relation to a negated label, for instance
+- Neural networks in time
+- WV in context!
+- Good at capturing long distance dependencies
+
+**For example**
+```python
+X = [e['no'], e['one'], e['cares'], e['.']]
+y = [[0,1], [1,0], [1,0], [0,1]]
+```
+
+![bg right 100%](figures/lstm.png)
 
 ---
 <!--- _paginate: false --->
@@ -187,14 +221,24 @@ Since the transitions have an effect on the model, experiment with more labels:
 # 🧠 Neural Networks For Negation Scope Detection
 > ###### Fancellu et al., 2016
 
-# `todo`
-
-- show end-to-end architecture
-- make a point of how much more simple (and elegant/intuitive?) it is
-- compare results with UIO2
+- **Bidirectional** LSTMs seem to be a "natural" fit for negation
+    - Scopes can be either to right or left of a cue, discontinuous scopes, etc.
+- Unsupervised token modeling
+- Semi-supervised **pos** and **cue** modeling
+- No explicit feature modeling of the relation between cues and tokens
 
 ---
 
+# Less "intervention" _and_ better performance :moneybag: 📈
+
+|   	      | Scope tokens F1	| Exact scope F1|
+|:----------: |----------------:|-------------:|
+| BiLSTM      | **88.72**       | **77.77**    |
+| UiO2  	  | 83.73           | 72.39        |
+| UWashington | 83.51           | 71.81        |
+
+
+---
 <!--- _paginate: false --->
 <!--- _class: invert --->
 
@@ -204,14 +248,68 @@ Since the transitions have an effect on the model, experiment with more labels:
 
 ---
 
-# `todo`
+# The problem with word vectors
 
-- The problem with word vectors
-- Maybe something that LSTMs can solve?
-- enter deep contextualized embeddings
-- ELMO paper
-- show smashed leaderboards
-- highlevel BERT, tractab. trick, caveats
+![width:800px](figures/def-notice.png)
+
+---
+
+# ![width:80px](figures/elmo.png) Deep contextualized word representations
+> Peters et al., 2018
+
+- Instead of pre-training fixed dictionaries of WV, pre-train a deep biLSTM instead
+- Run text through the pre-trained network, and out come the representations
+- Different layers might help for different tasks
+- lower layers: surface, higher layers: semantic
+- The promise: swap your WVs with Elmo embeddings, and performance will improve
+
+---
+
+# ![width:80px](figures/elmo.png) In practice
+
+```python
+e = embed(
+    "interest rates are subject to fluctuation without notice".split(),
+    "we have yet to receive formal notification of the announcement".split(),
+    "notice the youth behaving suspiciously".split(),
+    "she observed that all the chairs were already occupied".split(),
+)
+ 
+notice_announcement = e[0][7]
+announcement = e[1][9]
+notice_observe = e[2][0]
+observe = e[3][1]
+
+
+print(all([
+    1-cosine(notice_announcement, announcement) > 1-cosine(notice_announcement, observe),
+    1-cosine(notice_observe, observe) > 1-cosine(notice_announcement, observe)
+]))
+
+# > True
+```
+
+---
+
+# <!--- fit ---> ![width:90px](figures/bert.jpg) BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding
+> Devlin et al. 2019
+
+- The same general intuition as Elmo, but with a **transformer** architecture
+- Ditches the recurrent part of Elmo, enables training massive models
+- multi-head attention and transformer probing is a genre in itself
+- Gets us closer to **end-to-end**(-ness?): fine-tuning
+
+---
+
+# Model fine-tuning
+
+- More than just representation: add a layer for your task
+- Gently (and cheaply!) retrain the whole network
+- Text in, English SOTA out
+- Made easily accessible by for example 🤗
+
+![bg right 50%](figures/bert.jpg)
+![bg right vertical 50%](figures/bert-finetuned.png)
 
 ---
 
@@ -225,18 +323,36 @@ Since the transitions have an effect on the model, experiment with more labels:
 ---
 
 #  ![width:60px](figures/bert.jpg) NegBERT: A Transfer Learning Approach for Negation Detection and Scope Resolution
-> ###### Khandelwal and Sawant, 2019
+> ###### Khandelwal and Sawant, 2019*
 
-# `todo`
+- Gets us even closer to end to end:
+    1. Fine-tune Bert for cue detection
+    2. Fine-tune Bert for scope detection (w/ special cue tokens)
+- Features-through-labels make a comeback!
+ `['normal', 'affix', 'multiword', 'not-a-cue']`
 
-- preprint paper from 3 weeks ago: https://arxiv.org/pdf/1911.04211.pdf
-- show architecture, briefly explain the concept of tl/fine tuning (lego analogy?)
-- Show the improvement on sherlock holmes 2012 through 2019
+
+<!--- _footer: '* Preprint on arXiv November 2019' --->
 
 ---
 
-# `todo`
+# No surprises! ![width:60](figures/bert-finetuned.png) 🏆
+
+|             | Scope tokens F1	| Exact scope F1|
+|:----------: |----------------:|--------------:|
+| NegBERT     | **92.36**       | ---           |
+| BiLSTM      | 88.72           | 77.77         |
+| UiO2  	  | 83.73           | 72.39         |
+| UWashington | 83.51           | 71.81         |
+
+
+---
+
+# 🧶 Putting it all together
 
 - closing slide
+- I
+- can't
+- sto-op
 
 > "Everyone has Bert": now what?
