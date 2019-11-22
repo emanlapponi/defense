@@ -6,3 +6,9 @@ look for definitions -- maybe contrasting ones -- on what end-to-end systems are
 end-to-end learning vs systems
 
 http://www.jmlr.org/papers/volume12/collobert11a/collobert11a.pdf
+
+https://machinelearningmastery.com/promise-deep-learning-natural-language-processing/
+
+blog on finetuning namedropping "end-to-end"
+
+- rather than outputting a sequence, we "decode out" what we encoded in the transformer

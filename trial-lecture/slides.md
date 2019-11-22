@@ -9,7 +9,7 @@ size: 16:9
 <!--- _class: invert --->
 <!--- _paginate: false --->
 # End-to-end systems in Natural Language Processing
-## 👩🏻‍🔬 🧠 ![width:60px](figures/elmo.png) From feature extraction to Sesame Street
+## 👩🏻‍🔬 🧠 ![width:60px](figures/elmo.png) NR from feature extraction to Sesame Street
 > **Emanuele Lapponi**
 > Language Technology Group
 > Institute for Informatics
@@ -20,11 +20,22 @@ size: 16:9
 ## 🤔 From-what-end-to-what-end NLP systems? And through what?
 
 - Depends where you are starting from! Text? Speech? A picture, maybe?
-- An end-to-end _system_ does not necessarily mean end-to-end _learning_
+
+![width:1000](figures/pedant.png)
 
 ![bg right vertical](figures/translate.png)
 ![bg right vertical](figures/kindly.png)
 ![bg right vertical](figures/predictive.png)
+
+---
+
+# <!--- fit ---> Pipeline vs. end-to-end
+
+- From separate modules (and models!) for feature extraction
+- To separate neural models
+- To one neural model
+
+![bg right 100%](figures/pipe-vs-e2e.png)
 
 ---
 # ⚗️ End-to-end NLP "experimental setups"
@@ -47,7 +58,7 @@ size: 16:9
 - ... and **no** **{** one could have escaped our notice **}**.
 
 ---
-# Negation Scope Resolution (NSR)
+# 🕵🏻‍♂️ 🔎 Negation Scope Resolution (NSR)
 
 One way to think about it:
 
@@ -93,11 +104,11 @@ notice  NEGATED
 
 # What's a word?
 
-A bunch of symbols: we decide what those symbols are, for instance:
+A bunch of symbols! we decide what those symbols are, for instance:
 - token `notice`
 - part-of-speech disambiguated: `notice-NOUN`
 - the backward trigram: `notice-our-escaped`
-- might help to know that it's a direct object:`notice-dobj`
+- might help to know that it's a direct object: `notice-dobj`
 
 ---
 
@@ -126,14 +137,14 @@ Since the transitions have an effect on the model, experiment with more labels:
 ---
 # Where does it get us?
 
-- The best CRF feature soup for Negation in general, and the best system for exact scope match :tada:
+- The best CRF feature soup for negation in general, and the best system for exact scope match :tada:
 
 |   	      | Scope tokens F1	| Exact scope F1|
 |:----------: |----------------:|-------------:|
 | UiO2  	  | **83.73**       | **72.39**    |
 | UWashington | 83.51           | 71.81        |
 
-... by a small margin 🎚
+... by a quite small margin 🎚
 
 <!--- _footer: '😅 Abridged leaderboard, considering only CRF approaches and not sorting according to other evaluation dimensions.' --->
 
@@ -165,7 +176,6 @@ Since the transitions have an effect on the model, experiment with more labels:
 
 - Randomly initialize one vector per word
 - Calculate a probability distribution of surrounding words (or the inverse)
-- Neural watershed moment in NLP
 
 ![bg right 80%](figures/skipgram.png)
 
@@ -224,7 +234,7 @@ y = [[0,1], [1,0], [1,0], [0,1]]
 - **Bidirectional** LSTMs seem to be a "natural" fit for negation
     - Scopes can be either to right or left of a cue, discontinuous scopes, etc.
 - Unsupervised token modeling
-- Semi-supervised **pos** and **cue** modeling
+- Semi-supervised **pos** modeling
 - No explicit feature modeling of the relation between cues and tokens
 
 ---
@@ -232,11 +242,20 @@ y = [[0,1], [1,0], [1,0], [0,1]]
 # Less "intervention" _and_ better performance :moneybag: 📈
 
 |   	      | Scope tokens F1	| Exact scope F1|
-|:----------: |----------------:|-------------:|
-| BiLSTM      | **88.72**       | **77.77**    |
-| UiO2  	  | 83.73           | 72.39        |
-| UWashington | 83.51           | 71.81        |
+|:----------: |----------------:|--------------:|
+| BiLSTM      | **88.72**       | **77.77**     |
+| UiO2  	  | 83.73           | 72.39         |
+| UWashington | 83.51           | 71.81         |
 
+---
+
+# Less "intervention" ~~_and_ better performance~~ 🤦🏻‍♂️
+
+|   	      | Scope tokens F1	| Exact scope F1|
+|:----------: |----------------:|--------------:|
+| BiLSTM      | (?) **88.72**   | (?) **77.77** |
+| UiO2  	  | 83.73           | 72.39         |
+| UWashington | 83.51           | 71.81         |
 
 ---
 <!--- _paginate: false --->
@@ -336,23 +355,24 @@ print(all([
 
 ---
 
-# No surprises! ![width:60](figures/bert-finetuned.png) 🏆
+# ![width:60](figures/bert-finetuned.png) 🏆
 
 |             | Scope tokens F1	| Exact scope F1|
 |:----------: |----------------:|--------------:|
 | NegBERT     | **92.36**       | ---           |
-| BiLSTM      | 88.72           | 77.77         |
+| BiLSTM      | (?) 88.72       | (?) 77.77     |
 | UiO2  	  | 83.73           | 72.39         |
 | UWashington | 83.51           | 71.81         |
 
 
 ---
 
-# 🧶 Putting it all together
+# 🧶 Conclusion
 
-- closing slide
-- I
-- can't
-- sto-op
+- End to end systems in NLP: from pipelines, through neural pipelines, to one neural model
+- We took a historical, research-based look at this trend through architectural developments in a specific task: NSR
+- Almost there but not quite!
 
-> "Everyone has Bert": now what?
+
+---
+
