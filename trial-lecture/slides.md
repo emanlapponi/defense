@@ -31,7 +31,7 @@ size: 16:9
 
 # <!--- fit ---> Pipeline vs. end-to-end
 
-- From separate modules (and models!) for feature extraction
+- From separate modules (and feature "design")
 - To separate neural models
 - To one neural model
 
@@ -40,13 +40,16 @@ size: 16:9
 ---
 # ⚗️ End-to-end NLP "experimental setups"
 
+<!---
 - NLP systems to advance the state of the art in NLP
     - Question answering `(question,text) -> offsets`
     - Sentiment analysis `text -> sentiment`
     - Named entity recognition `text -> (label,offsets)`
+-->
 
-- Today: NLP systems from 2012 to 2019, with Negation scope resolution
 - Interesting case, as SOTA is moving _towards_ end-to-end learning 💡
+- Today: NLP systems from 2012 to 2019, with Negation scope resolution
+
 
 ---
 # 🕵🏻‍♂️ 🔎 Negation Scope Resolution (NSR)
@@ -96,12 +99,6 @@ notice  NEGATED
 
 ---
 
-# Ye olde NLP pipeline
-
-![width:10000px](figures/uio2-pipeline.png)
-
----
-
 # What's a word?
 
 A bunch of symbols! we decide what those symbols are, for instance:
@@ -133,6 +130,12 @@ Without diving into the specific, for intuition's sake:
 
 Since the transitions have an effect on the model, experiment with more labels:
 `[O, MCUE, CUE, N, S]` - perhaps counterintuitive, but does the trick
+
+---
+
+# Ye olde NLP pipeline
+
+![width:800px](figures/uio2-system.png)
 
 ---
 # Where does it get us?
@@ -236,6 +239,13 @@ y = [[0,1], [1,0], [1,0], [0,1]]
 - Unsupervised token modeling
 - Semi-supervised **pos** modeling
 - No explicit feature modeling of the relation between cues and tokens
+
+---
+
+# 🧠 Neural Networks For Negation Scope Detection
+> ###### Fancellu et al., 2016
+
+![width:800px](figures/fancellu-system.png)
 
 ---
 
@@ -355,6 +365,13 @@ print(all([
 
 ---
 
+#  ![width:60px](figures/bert.jpg) NegBERT: A Transfer Learning Approach for Negation Detection and Scope Resolution
+> ###### Khandelwal and Sawant, 2019*
+
+![width:800px](figures/negbert-system.png)
+
+---
+
 # ![width:60](figures/bert-finetuned.png) 🏆
 
 |             | Scope tokens F1	| Exact scope F1|
@@ -373,6 +390,4 @@ print(all([
 - We took a historical, research-based look at this trend through architectural developments in a specific task: NSR
 - Almost there but not quite!
 
-
----
 
