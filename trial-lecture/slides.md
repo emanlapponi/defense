@@ -9,7 +9,7 @@ size: 16:9
 <!--- _class: invert --->
 <!--- _paginate: false --->
 # End-to-end systems in Natural Language Processing
-## 👩🏻‍🔬 🧠 ![width:60px](figures/elmo.png) NR from feature extraction to Sesame Street
+## 👩🏻‍🔬 🧠 ![width:60px](figures/elmo.png) NSR from feature extraction to Sesame Street
 > **Emanuele Lapponi**
 > Language Technology Group
 > Institute for Informatics
@@ -163,7 +163,7 @@ Since the transitions have an effect on the model, experiment with more labels:
 # Representation revisited
 
 - All the engineering in the 2012 system gets us little in the way of actual **meaning**
-- `house-surgeon` and `surgeon`
+- Sherlock Holmes is a detective, and a fictional one at that
 - How shall we know the meaning of a word, Prof. Firth?
 
 ---
@@ -389,5 +389,3 @@ print(all([
 - End to end systems in NLP: from pipelines, through neural pipelines, to one neural model
 - We took a historical, research-based look at this trend through architectural developments in a specific task: NSR
 - Almost there but not quite!
-
-
