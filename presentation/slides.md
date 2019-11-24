@@ -133,7 +133,7 @@ political analysis
 # Getting our feet wet
 
 - Preliminary experiments, going off the recipe
-- signs that linguistic features might contribute positively to these methods
+- Signs that linguistic features might contribute positively to these methods
 
 ![bg right 70%](figures/eu-preliminary.png)
 
@@ -236,8 +236,8 @@ political analysis
 ---
 ## **L**ap e**X**change **F**ormat
 
-- scalable to linguistic annotations beneath and above the token level
-- applicable to a wide a range of linguistic phenomena and text annotations
+- Scalable to linguistic annotations beneath and above the token level
+- Applicable to a wide a range of linguistic phenomena and text annotations
 - Scalable to large data volumes
 
 ---
