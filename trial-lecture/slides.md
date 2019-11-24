@@ -47,7 +47,7 @@ size: 16:9
     - Named entity recognition `text -> (label,offsets)`
 -->
 
-- Interesting case, as SOTA is moving _towards_ end-to-end learning 💡
+- Is SOTA is moving towards end-to-end learning?
 - Today: NLP systems from 2012 to 2019, with Negation scope resolution
 
 
