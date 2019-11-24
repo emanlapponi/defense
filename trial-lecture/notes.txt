@@ -12,3 +12,184 @@ https://machinelearningmastery.com/promise-deep-learning-natural-language-proces
 blog on finetuning namedropping "end-to-end"
 
 - rather than outputting a sequence, we "decode out" what we encoded in the transformer
+
+
+# 1 - Title
+
+We are going to talk about e2e systems for Natural Language Processing.
+In order to gain a solid intuition on what these systems are, or may be, we will look at it with a historical and research-based perspective.
+
+# 2 - From-what-end-to-what-end NLP systems? And through what?
+
+First of all, everybody in this class should be familiar with what an NLP system is. Something that runs on a computer, takes human language as input, and does something useful with it.
+
+Some systems are conceptually simple - predicting the most likely word given the previous ones, for assisted typing - others more involved - chatbots, of the closed and open class type - and some plain scifi-ish, live on-the-fly machine translation.
+
+Now, from the outside looking in, all of these are end-to-end systems. So the characterizing bit of these end-to-end systems has to be the "through" part. If we look around the web in search for answers, a lot of the conversation seems to center around pipelines, feature extraction and deep learning. Here we see a machine learning hustler/blogger answering the question directly, posed something along the lines of "what's the difference between a pipeline and an end-to-end system". Still the "through what" part stays unanswered.
+
+# 3 - Pipeline vs. end-to-end
+
+Luckily we find a definition we can work with from the Stanford class on DL methods for NLP! And it's kind of a historical one:
+
+(a) there are classical NLP pipelines, where we have some input, and then we go through different components that do different things, some of these maybe other NLP system, other may be ways of creating feature representations out of the outputs of these systems, and they usually end with some ML model/machine that takes all of that as input, and out come the predictions.
+
+(b) then at some point these different modules/models get switched with neural approaches. Still not end-to-end, but requires less intervention when it comes to representation (as we will see later).
+And this certainly sounds like a good idea, as it liberates us from having to make too many assumptions on
+the data, it can lead to systems that are easier to domain-adapt etc. The problem here is that the different
+bits still have their own error, and we really are still making assumptions on what that last bit of machinery needs to learn from the data.
+
+(c) What takes from (b) to E2E is having a single neural model take care of everything, from data to predictions. This sounds like a good idea for two reasons: it makes things significantly easier, and the
+error, the loss from predicting our ys, gets backpropagated all the way down to the lowest levels of representation.
+
+# 4 - End-to-end NLP research
+
+Today we will look at this history through the development sota systems within NLP research. This will give
+us an understanding of the different kinds of system architectures and why these architectures changed/are changing, but it will also show us whether or not it's a good trend, empirically. The task we will focus on is Negation Scope Resolution.
+
+# 5 - Negation Scope Resolution (NSR)
+
+Before we start looking at systems, let's loosely define the task and present some challenges. There is more to NSR than what we will mention in this lecture, so we will look at the task quite superficially. A lot has been written on the topic and its usefulness, but that is not the focus here.
+
+The task is "find the tokens in a sentence that are affected by a negation cue". So if I say that I do not eat meat, "not" tells that "it is not the case that I do eat meat" so the words I/do/eat/meat are in the scope of "not". In at least one of the corpora (that is NLP for "dataset"), this scope can be to the right or/and left side of a cue, it can be discontinuous. Cues can be of the "not" and "no" kind (adverbs or adjectives), but they can also be affixes or suffixes (this is impossible -> it is not the case that this is possible)
+
+Here we have to examples from the Sherlock Holmes dataset, released in conjunction with a shared task on NSR.
+What we want to do here is resolve the scope.
+
+# 6 - Negation Scope Resolution (NSR)
+
+So one way to think about it is definitely sequence labeling
+
+# 7 - 2012
+
+History time. Let'ssee how one can tackle this problem in 2012. The year of the large hadron collider.
+
+# 8 - UiO2: Sequence-Labeling Negation with Dependency Features
+
+One of the SOTA systems of the time (there are a bunch of dimensions, not relevant here). Uses Conditional Random fields, which were one of the most powerful models at the time, in fact the most popular way to tackle this problem. But this was the best CRF, so it definitely it is not the case that a CRF alone is enough. What matters is representation, and that's where that first (a) pipeline-variant from earlier comes into play.
+
+# 9 - What's a word
+
+First we need to describe words for the model. We do it by creating a bunch of symbols: the token notice. Then we can disambiguate that token with its PoS. Since "a notice" and "to notice" mean different things. Then we can create symbols for the context, too, by using ngrams. PoS might not be enough, so we can parse the data
+and disambiguate with syntactic roles, too.
+
+# 10 - What's the effect of a negation cue?
+
+First of all, we need to find the cues, somehow. For this system, we use another ad-hoc SVM classifier as a "module". Then we define some symbols that represent the token-cue relationship. Distance, both in terms of tokens and syntax, what the syntactic graph between a cue and the token looks like. You should start to get a mental image of a very sparse matrix by now :)
+
+# 11 - Then, give the matrix to the model
+
+The gist of a CRF: There are T tokens in a sentence, each token has K feature functions (we decide which), that take into account our observations, but also the previous label. The model learns the best numbers (theta, the parameters) to predict the correct y-sequence (the scopes) given our sequence of observations.
+
+So, ehm, waitaminute, maybe we can fiddle a bit more with this, I mean, inject even more priors in the model, by hallucinating labels - say that cues can be either morphemes or not, and that tokens immediately to the right of the scope are "stoppers".
+
+# 12 - Ye olde NLP pipeline
+
+We have now finally built this non-e2e system. Data goes in, a model does cue detection, a bunch of other models do linguistic preprocessing, then we use those to build representations, feed it to the classifier, and out come the scopes.
+
+# 13 - Where does it get us?
+
+So what do we get out of this? The best CRF! By quite a small margin (for these specific subtasks).
+
+# 14 - 2013
+
+Year of Miley Cyrus' smash hit "Wrecking ball", and indeed a nice metaphor of what happens to NLP the same year. 
+
+# 15 - Representation revisited
+
+A lot of the representation engineering from these 2012 crf systems for negation gets us little in the way of meaning. The representation for Sherlock Holmes is not directly linked to detectives, let alone fictional ones.
+If we wanted to have this meanings we could have looked at wordnets, but that has a number of restrictions, above all that they rely on human curators. So ho shall we know the meaning of a word?
+
+# 16 - You shall know the meaning of a word by the company it keeps
+
+An over used quote from mid 20th century, but also the wrecking ball hit of 2013
+
+# 17 - Word vectors
+
+Do exactly that. Predict the company of a word, the surrounding words, given a vector for the
+center word (or the inverse). We do this in a feed-forward with one hidden layer, and the hidden layer,
+the parameters (the good numbers!), are the vector representation for the word. We do this for a lot of text, completely unsupervised.
+
+# 18 - 🤯🤯🤯
+
+So how good are these representations at describing words, at giving us information we can use: how good are these numbers? By 2013 standards, mindblowingly good. This is an w2v model we recently trained with my team at work over some easily accessible English data, wikipedia among other things. It has very good numbers for Sherlock Holmes -- the closest vectors in v space are "hercule poirot", "miss marple" and "fictional detective". This semantic vector space also means that we can calculate semantics, and even find morphosyntactic relations -- take "better", subtract "good", and you get a distance for "comparative". Add it to fast and out comes "faster".
+
+Training this models from large amounts of data and then using it as a representation for another model means that we are not "starting from scratch", we are transfering knowledge from model to model.
+
+# 19 - LSTM RNNs
+
+But a representation showcase alone is not really a system. We can plug this dense vectors into many types of models, but it turns out that architectures that did not really work so well with sparse vectors really can make good use of these vectors. So starts the LSTM era of NLP. Briefly, Long short term memory networks are recurrent neural networks. Recurrent here means sequential, like neural networks in time. You have a time step in a sequence, an hidden state with the good numbers, predict a label, calculate the loss, then the next step in the sequence takes both the previous hidden state and the input, and so on until the end of the sequence.
+
+If we use wv as input, the LSTM learns the vectors important context for our "predict-y" task, and LSTM are good at capturing long distance dependencies. Bidirectional LSTMs read backward and forward. Wait a minute, this seems to fit our NSR problem like a GloVe.
+
+# 20 - 2016
+
+I don't have nice anecdotes or metaphors here
+
+# 21 - Neural Networks For Negation Scope Detection
+
+So yes, sounds like a good idea, and it gets applied to the problem. This system is of the (b) kind - some bits are replaces by neural models, the feature engineering disappears. For their best config, train an unsupervised wv model using external and internal data, represent "cueness" of a word with a "is not cue" and a "is cue" vector, and also pos tag the data and train embedding models for the part of speech tags. then they feed it to a bilstm, and out come the scopes.
+
+# 22 - Neural Networks For Negation Scope Detection
+
+So we are going towards end to end here, certainly there's a lot less supervision throughout the pipeline.
+
+# 23 - Less "intervention" _and_ better performance
+
+So there are advantages to this approach other than mere performance, but the author also report results that
+are leaps and bounds above the CRFs of yore.
+
+# 24 - Less "intervention" _and_ better performance NOT
+
+Unfortunately it turns out that they are using gold cues, not encoding them according to the observations in the training data, even though they are comparing to systems that predict cues. So we don't know whether or not this system is SOTA.
+
+# 25 - 2018
+
+So let's see what 20189 has in store for us.
+
+# 26 - The problem with word vectors
+
+On of the limitations of word vectors is that we get one vector per observed word form. But obviously this is not always the case. Take for instance "notice" from our example from earlier -- as a noun alone, it has two separate dictionary meanings, with nuances. A third as a verb, even more nuances.
+
+But didnt we say that the nuances and the contextual meaning were the job of these LSTMs?
+
+# 27 - Deep contextualized word representations
+
+Indeed! So why not pre-train lstms from large amounts of data, then instead of storing vectors in a dictionary, we run new text through the networks and use the hidden states for representation. This is the ELMO model, a new watershedy moment in NLP. The promise is to just swap this with the aging wv, and up goes the f-score.
+
+# 28 - In practice
+
+nevermind the code here, but if we give elmo "notice" in two different meaning, then also encode other synonyms for these meaning, we can clearly see this nice property take effect in vector space, where one version of "notice" is closer to "announcement", while the other is closer to "observe"
+
+# 29 - BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding
+
+And Elmo is not even half of the story for 2018 NLP. Devlin at others come up with a network that allows for training massive models, larger than what is possible for Elmo. Now we really do not have time to go into the specifics of Bert, masked language models, multi-head attention and so on. The important thing for us is this notion of fine tuning Bert for other task.
+
+# 30 - Model fine-tuning
+
+Not a component in a pipeline: rather, take off the final bert layer, slap on one that works for another task, then retrain the whole network. Quite gently even, the authors recommend 10 epoch and a very small hyperparameter window for tuning. And what you generally get, in 2018 at least mostly for English, is sota results on a wide array of tasks.
+
+Moreover, bert and other similar models are very easily accessible and usable thanks to the work of the community, for instance huggingface, which also provide a selection of hats ehm output layers for different tasks.
+
+# 31 - 2019
+
+And here we are now, 2019. Pictured here, an activist's reaction to the environmental costs of modern NLP.
+
+# 32 - NegBERT: A Transfer Learning Approach for Negation Detection and Scope Resolution
+
+So will the muppets enable us to do SOTA end-to-end NSR in 2019? As of a couple of ago - eh, almost, but not quite, at least by our strict definition of end to end.
+The system described in this paper takes the raw data, fine-tunes BERT for cue classification, then re-serializes the data with special "cue" tokens, fine tunes BERT for scope resolution, and get scopes.
+Interestingly, at least for me who came up with it 7 years earlier, fine-graining the label set makes a comeback here.
+
+# 33 - NegBERT: A Transfer Learning Approach for Negation Detection and Scope Resolution
+
+And as we can see, here wed are nearly doing things end to end. Why results for end-to-end sequence labeling of cues and scopes at the same time was not reported? We can't know for sure. I suspect it is simply because it worked better this way.
+
+# 34 - bert cup
+
+But is this nearly e2e. is it better? The reported F1 for scope tokens says yes, dramatically so. Exact scopes not reported though.
+
+# 35 - Conclusions
+
+So in conclusion, what are e2e systems for NLP? We looked at one definition: from pipelines of models and human defined features, through pipelines of neural models, to one neural model, data in, labels out.
+
+We looked at this evolution through the transformation of architectures for NSR, trying to understand what the motivators for these changes in architecture were. Looks like the state of the art in negation scope resolution is almost end to end.

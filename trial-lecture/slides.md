@@ -23,9 +23,9 @@ size: 16:9
 
 ![width:1000](figures/pedant.png)
 
-![bg right vertical](figures/translate.png)
-![bg right vertical](figures/kindly.png)
-![bg right vertical](figures/predictive.png)
+![bg left vertical](figures/translate.png)
+![bg left vertical](figures/kindly.png)
+![bg left vertical](figures/predictive.png)
 
 ---
 
@@ -38,7 +38,7 @@ size: 16:9
 ![bg right 100%](figures/pipe-vs-e2e.png)
 
 ---
-# ⚗️ End-to-end NLP "experimental setups"
+# ⚗️ End-to-end NLP research
 
 <!---
 - NLP systems to advance the state of the art in NLP
@@ -169,7 +169,7 @@ Since the transitions have an effect on the model, experiment with more labels:
 ---
 
 
-# <!--- fit ---> You shall know the meaning of a word by the company it keeps
+# <!--- fit ---> You shall know a word by the company it keeps
 
 ![bg contrast blur](figures/firth.png)
 
@@ -288,8 +288,6 @@ y = [[0,1], [1,0], [1,0], [0,1]]
 
 - Instead of pre-training fixed dictionaries of WV, pre-train a deep biLSTM instead
 - Run text through the pre-trained network, and out come the representations
-- Different layers might help for different tasks
-- lower layers: surface, higher layers: semantic
 - The promise: swap your WVs with Elmo embeddings, and performance will improve
 
 ---
@@ -384,7 +382,7 @@ print(all([
 
 ---
 
-# 🧶 Conclusion
+# 🧶 Conclusions
 
 - End to end systems in NLP: from pipelines, through neural pipelines, to one neural model
 - We took a historical, research-based look at this trend through architectural developments in a specific task: NSR
