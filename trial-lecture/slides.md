@@ -10,7 +10,7 @@ size: 16:9
 <!--- _paginate: false --->
 # End-to-end systems in Natural Language Processing
 ## 👩🏻‍🔬 🧠 ![width:60px](figures/elmo.png) NSR from feature extraction to Sesame Street
-> **Emanuele Lapponi**
+> **Emanuele Lapponi** (he/him)
 > Language Technology Group
 > Institute for Informatics
 > University of Oslo
@@ -29,13 +29,15 @@ size: 16:9
 
 ---
 
-# <!--- fit ---> Pipeline vs. end-to-end
+# <!--- fit ---> End-to-end models
 
-- From separate modules (and feature "design")
-- To separate neural models
-- To one neural model
+- (a) From separate models (and feature "design")
+- (b) To separate neural models
+- (c) To one neural model
 
 ![bg right 100%](figures/pipe-vs-e2e.png)
+
+<!--- _footer: '[Navdeep Jaitly, CS2249](https://youtu.be/3MjIkWxXigM)' --->
 
 ---
 # ⚗️ End-to-end NLP research

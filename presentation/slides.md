@@ -8,12 +8,11 @@ size: 16:9
 ---
 <!--- _paginate: false--->
 <!--- _class: invert--->
-<!--- _footer: ':memo: Find this deck at `github.com/emanlapponi/defense/slides.md`' --->
 
 #  <!--- fit ---> The Language Analysis Portal
 #  🎨 🏗 💡Design, implementation and use
 
-**Emanuele Lapponi**
+> **Emanuele Lapponi** (he/him)
 > Language Technology Group
 > Institute for Informatics
 > University of Oslo
