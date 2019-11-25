@@ -134,8 +134,8 @@ Since the transitions have an effect on the model, experiment with more labels:
 `[O, MCUE, CUE, N, S]` - perhaps counterintuitive, but does the trick
 
 ---
-
-# Ye olde NLP pipeline
+> (a), different non-neural models/components  
+>  ![width:200px](figures/pipe-ab.png)
 
 ![width:800px](figures/uio2-system.png)
 
@@ -209,10 +209,10 @@ e.most_similar(
 
 ---
 
-# LSTM RNNs
+# LSTMs dominate NLP
 
-- Neural networks in time
-- WV in context!
+- A sequential model
+- Learn task-specific contextual features
 - Good at capturing long distance dependencies
 
 **For example**
@@ -244,8 +244,8 @@ y = [[0,1], [1,0], [1,0], [0,1]]
 
 ---
 
-# 🧠 Neural Networks For Negation Scope Detection
-> ###### Fancellu et al., 2016
+> (b), different neural models/components  
+>  ![width:200px](figures/pipe-ab.png)
 
 ![width:800px](figures/fancellu-system.png)
 
@@ -351,7 +351,7 @@ print(all([
 
 ---
 
-#  ![width:60px](figures/bert.jpg) NegBERT: A Transfer Learning Approach for Negation Detection and Scope Resolution
+# ![width:60px](figures/bert.jpg) NegBERT A Transfer Learning Approach for Negation Detection and Scope Resolution
 > ###### Khandelwal and Sawant, 2019*
 
 - Gets us even closer to end to end:
@@ -365,10 +365,11 @@ print(all([
 
 ---
 
-#  ![width:60px](figures/bert.jpg) NegBERT: A Transfer Learning Approach for Negation Detection and Scope Resolution
-> ###### Khandelwal and Sawant, 2019*
+>_Almost_ (c), one neural model
+> ![width:150px](figures/e2e-c.png)
+ 
 
-![width:800px](figures/negbert-system.png)
+![width:800](figures/negbert-system.png)
 
 ---
 
