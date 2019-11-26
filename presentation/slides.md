@@ -223,7 +223,7 @@ Analysis Methods for Political Texts](https://web.stanford.edu/~jgrimmer/tad2.pd
 
 ---
 
-# 🎨 🏗 LAP & LXF
+# 🎨 🏗 LAP & LXF 
 - A modular system for HPC-ready, user friendly language annotations
 - Scalable to large volumes of data and heterogenous linguistic (and non-linguistic!) annotation
 
