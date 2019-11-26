@@ -213,7 +213,7 @@ Analysis Methods for Political Texts](https://web.stanford.edu/~jgrimmer/tad2.pd
 <!--- _class: invert--->
 <!--- _header: '' --->
 
-# Conclusions 🎨 🏗 💡
+# Conclusions ✨
 
 ---
 <!--- header: '📋 Conclusions and future work' --->
