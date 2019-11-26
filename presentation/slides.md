@@ -31,16 +31,16 @@ size: 16:9
 
 # CLARIN
 
-- International efforts to develop resources and systems that aim at facilitating NLP ❤️ SSH research
+- Develop resources and systems that aim at facilitating NLP ❤️ SSH research
 
-- Part of the CLARINO mandate: build a portal for NLP applications running on an HPC cluster, focusing on users with no NLP background
+- Part of the CLARINO mandate: build a portal for NLP applications focusing on users with no NLP background
 
 ![bg right 100%](figures/clarin-page.png)
 ![bg right vertical 100%](figures/clarino-site.png)
 
 ---
 
-Undertaking such projects raises questions:
+### 🤔 Undertaking such a project raises questions:
 - What NLP tools are useful, and for what?
 - How should a system the facilitates their use be designed?
 - Can off-the-shelf tools be integrated? 
@@ -75,10 +75,8 @@ We initiate a collaboration with the Department of Political Science, gather req
 ---
 <!--- header: '💡 Text as data' --->
 
-### Using **NLP** for political analysis
+### Using **NLP** techniques for political analysis
 
-- Typically, empirical inference in PolSci is based on numerical data
-- (Relatively) recently, text has seen a surge of interest in the field
 - For example: place words on a left-right political axis*
 
 ![bg right 100%](figures/wordfish.png)
@@ -86,7 +84,7 @@ We initiate a collaboration with the Department of Political Science, gather req
 Positions from Texts](http://www.wordfish.org/uploads/1/2/9/8/12985397/slapin_proksch_ajps_2008.pdf)' --->
 
 ---
-# Classifier evaluation scores as a quantity of interest
+# <!--- fit ---> 💡 Classifier evaluation scores as a quantity of interest
 
 - In a parliamentary setting, the contents of a speech should reflect the
 ideology of the speaker.
@@ -119,9 +117,9 @@ Systems](https://www.nyu.edu/projects/spirling/documents/PolLetter.pdf)
 ---
 # Text-as-data pre-processing cookbook
 
-- Grimmer and Stewart (2013)* ignite the text-as-data field. They introduce a recipe for pre-processing, and warn of the dangers of "one-size-fits-all" experiments
-- Emphasis on stemming and normalization
-- Dismissal of expensive techniques that do little to enhance performance, e.g. ngram generation, lemmatization and so on
+- Grimmer and Stewart (2013)* survey the text-as-data field, warning of the dangers of "one-size-fits-all" experiments
+- They also introduce a recipe for pre-processing, with emphasis on stemming and normalization
+- Dismissal of expensive techniques that "do little to enhance performance", e.g. ngram generation, lemmatization and so on
 
 <!--- _footer: '* [Text as Data: The Promise and Pitfalls of Automatic Content
 Analysis Methods for Political Texts](https://web.stanford.edu/~jgrimmer/tad2.pdf)' --->
@@ -136,15 +134,6 @@ Analysis Methods for Political Texts](https://web.stanford.edu/~jgrimmer/tad2.pd
 <!--- _footer: '* [Text Preprocessing For Unsupervised Learning: Why It Matters, When It Misleads, And What To Do About It](https://www.cambridge.org/core/journals/political-analysis/article/text-preprocessing-for-unsupervised-learning-why-it-matters-when-it-misleads-and-what-to-do-about-it/AA7D4DE0AA6AB208502515AE3EC6989E)' --->
 
 ---
-# Our perspective
-
-- Thoroughly navigating the NLP sea before doing political analysis means no
-political analysis 
-- Building NLP-for-SSH infrastructures might just be a good idea
-- Doing it without navigating the SSH sea likely is not: if we build it, will they come?
-
-
----
 <!--- _paginate: false--->
 <!--- _class: invert--->
 <!--- _header: '' --->
@@ -154,6 +143,134 @@ political analysis
 
 ---
 <!--- header: '🎨🏗 LAP & LXF' --->
+
+# The Language Analysis Portal
+![w:1500px](figures/galaxyworkflow.png)
+
+---
+## **L**ap e**X**change **F**ormat
+
+- Scalable to linguistic annotations beneath and above the token level
+- Applicable to a wide a range of linguistic phenomena and text annotations
+- Scalable to large data volumes
+
+---
+## The **L**anguage **A**nnotation **F**ramework*
+
+- **Regions**: Standoff references to the media being annotated
+- **Graph elements**: A graph structure consisting of **nodes**, **edges** and **links** to regions, organizing the structure and the relations of the linguistic information
+- **Annotations**: Feature structures containing the actual linguistic information, associated with nodes and edges
+
+<!--- _footer: '* [The Linguistic Annotation Framework. A Standard for Annotation Interchange and Merging](https://link.springer.com/article/10.1007/s10579-014-9268-1)' --->
+
+---
+
+![bg 60%](figures/lxf-layers.svg)
+
+---
+
+<!---
+# LXF, LIF & DKPROCore Type System
+
+- **DKPROCore Type System** has the weakest support to provenance and alternative segmentations
+- **LXF** is the interchange representation most faithful to LAF
+
+
+--->
+
+<!--- _paginate: false--->
+<!--- _class: invert--->
+<!--- _header: '' --->
+
+## Part 4
+#  The Talk of Norway 💡
+
+---
+<!--- header: '💡 The Talk of Norway' --->
+
+# `https://github.com/ltgoslo/talk-of-norway`
+
+- 18 years of speeches from the Norwegian Parliament, in a novel combination of 80+ meta data variables and language, sentence, token, lemma, PoS and morphology annotations
+
+- An open, plug-and-research resource for text-as-data experimentation
+
+---
+# <!--- fit ---> F1 as a quantity of interest, in Norway
+
+- Marked improvements with better normalization, disambiguation and context
+- Mixing linguistic and meta-data features helps, too
+- Pre-processing does matter for the substance of the analysis
+
+![bg right 90%](figures/features.png)
+
+---
+
+![bg 85%](figures/cabinet-cm.png)
+![bg 85%](figures/opposition-support-cm.png)
+
+---
+<!--- _paginate: false--->
+<!--- _class: invert--->
+<!--- _header: '' --->
+
+# Conclusions 🎨 🏗 💡
+
+---
+<!--- header: '📋 Conclusions and future work' --->
+
+- Heterogenous workflows of off-the-shelf NLP tools can be made easily accessible without sacrificing scalability and flexibility
+- Easy access to NLP pre-preprocessing tools benefits political research and analysis
+
+---
+
+# 🎨 🏗 LAP & LXF
+- A modular system for HPC-ready, user friendly language annotations
+- Scalable to large volumes of data and heterogenous linguistic (and non-linguistic!) annotation
+
+---
+
+# 💡 Talk of Norway
+- An open resource for parliamentary analysis, informed by and developed with Political Scientists
+- The first ToN experiments show substantive differences in the analyses built on party classification performance
+
+---
+<!--- _header: '' --->
+
+![bg left 85%](figures/contribs.svg)
+
+# <!--- fit ---> ⛹🏻‍♂️ 🎓
+
+---
+<!--- _class: invert --->
+<!--- header: 'extras' --->
+
+# Director's cut 🎬
+
+---
+# Getting our feet wet
+
+- Preliminary experiments, going off the recipe
+- Signs that linguistic features might contribute positively to these methods
+
+![bg right 70%](figures/eu-preliminary.png)
+
+<!--- _footer: '* [Predicting Party Affiliations from European Parliament Debates](https://www.aclweb.org/anthology/W14-2516.pdf)' --->
+
+---
+
+![width:430](figures/keyage.png) ![width:550](figures/slogans.png)
+
+On their own, the meta data variables are useful for statistics (what do younger vs. older MEP talk about?), and can be used in combination with the linguistic annotations to quickly go from raw data to policies
+
+---
+
+![bg 60%](figures/periodwise-graph.png)
+
+---
+
+![bg 40%](figures/committees.png)
+
+---
 
 # What is an NLP tool?
 
@@ -171,9 +288,9 @@ political analysis
 ```
 
 ```shell
- 1 Sandy _ _ _ _ _ _ _ _
- 2 barks _ _ _ _ _ _ _ _
- 3 .     _ _ _ _ _ _ _ _
+ 1 Sandy _ _ NNP _ _ _ _ _
+ 2 barks _ _ NNS _ _ _ _ _
+ 3 .     _ _ . _ _ _ _ _
 ```
 
 ```shell
@@ -187,11 +304,8 @@ political analysis
 - Combine tools to get annotations for some downstream task (linguistic or otherwise)
 - Tools better be compatible
 
-![width:1500px](figures/toolchain.svg)
 
----
-
-![bg 80%](figures/workflow.svg)
+![bg right 100%](figures/workflow.svg)
 
 ---
 ## What is a portal?
@@ -202,7 +316,7 @@ political analysis
 - Not developer tools like **NLTK** and **SpaCy**!
 
 ## What is big data?
-- Hard to process on a laptop
+- Big enough to make processing it on a laptop impractical
 
 ---
 
@@ -218,30 +332,6 @@ political analysis
 - Blazing the trail for using Galaxy for NLP
 
 ![bg right 80%](figures/galaxy.png)
-
----
-# Workflows in Galaxy
-![w:1500px](figures/galaxyworkflow.png)
-
----
-## **L**ap e**X**change **F**ormat
-
-- Scalable to linguistic annotations beneath and above the token level
-- Applicable to a wide a range of linguistic phenomena and text annotations
-- Scalable to large data volumes
-
----
-## The **L**anguage **A**nnotation **F**ramework*
-
-- **Regions**: Standoff references to the media being annotated
-- **Graph elements**: A graph structure consisting of **nodes**, **edges** and **links** to regions, organizing the structure and the relations of the linguistic information
-- **Annotations**: Feature structures containing the actual linguistic in- formation, associated with nodes and edges
-
-<!--- _footer: '* [The Linguistic Annotation Framework. A Standard for Annotation Interchange and Merging](https://link.springer.com/article/10.1007/s10579-014-9268-1)' --->
-
----
-
-![bg 60%](figures/lxf-layers.svg)
 
 ---
 
@@ -273,118 +363,9 @@ political analysis
 ![bg right 86%](figures/lxf-receipt-only.svg)
 
 ---
+# Our perspective
 
-<!---
-# LXF, LIF & DKPROCore Type System
-
-- **DKPROCore Type System** has the weakest support to provenance and alternative segmentations
-- **LXF** is the interchange representation most faithful to LAF
-
-
---->
-
-<!--- _paginate: false--->
-<!--- _class: invert--->
-<!--- _header: '' --->
-
-## Part 4
-#  The Talk of Norway 💡
-
----
-<!--- header: '💡 The Talk of Norway' --->
-
-# `https://github.com/ltgoslo/talk-of-norway`
-
-- 18 years of speeches from the Norwegian Parliament, in a novel combination of 80+ meta data variables and language, sentence, token, lemma, pos and morphology annotations
-
-- An open, plug-and-research resource for text-as-data experimentation
-
----
-# <!--- fit ---> F1 as a quantity of interest, feat. Norway
-
-- Marked improvements with better normalization, disambiguation and context
-- Mixing linguistic and meta-data features helps, too
-- Pre-processing does matter for the substance of the analysis
-
-![bg right 90%](figures/features.png)
-
----
-<!--- _class: invert --->
-
-# **Bonus content**
-### Is classification accuracy driven by power or policy?
-Using the meta-data variables, we re-evaluate our best predictions using meaningful subsets of the data
-- `parl_period` 
-- `party_role`
-- `subject_committee_id`
-
----
-
-![bg 60%](figures/periodwise-graph.png)
-
----
-
-![bg 85%](figures/cabinet-cm.png)
-![bg 85%](figures/opposition-support-cm.png)
-
----
-
-![bg 40%](figures/committees.png)
-
----
-<!--- _paginate: false--->
-<!--- _class: invert--->
-<!--- _header: '' --->
-
-# Conclusions 🎨 🏗 💡
-
----
-<!--- header: '📋 Conclusions and future work' --->
-
-# 
-
-- Easy access to NLP pre-preprocessing tools benefits political research and analysis
-- Heterogenous workflows of off-the-shelf NLP tools can be made easily accessible without sacrificing scalability and flexibility
-
----
-
-#### 🎨 🏗 LAP & LXF
-
-- A modular system for HPC-ready, user friendly language annotations
-- Scalable to large volumes of data and heterogenous linguistic (and non-linguistic!) annotations
-
----
-
-#### 💡 Talk of Norway
-- An open resource for parliamentary analysis, informed by and developed with Political Scientists
-- The first ToN experiments show substantive differences in the analyses built on party classification experiments
-
----
-<!--- _class: invert --->
-<!--- header: 'extras' --->
-
-# Director's cut 🎬
-
----
-# Getting our feet wet
-
-- Preliminary experiments, going off the recipe
-- Signs that linguistic features might contribute positively to these methods
-
-![bg right 70%](figures/eu-preliminary.png)
-
-<!--- _footer: '* [Predicting Party Affiliations from European Parliament Debates](https://www.aclweb.org/anthology/W14-2516.pdf)' --->
-
----
-
-![width:430](figures/keyage.png) ![width:550](figures/slogans.png)
-
-On their own, the meta data variables are useful for statistics (what do younger vs. older MEP talk about?), and can be used in combination with the linguistic annotations to quickly go from raw data to policies
-
----
-
-![bg 60%](figures/periodwise-graph.png)
-
----
-
-![bg 40%](figures/committees.png)
+- Thoroughly navigating the NLP sea before doing political analysis means no
+political analysis 
+- Building NLP-for-SSH infrastructures might just be a good idea
+- Doing it without navigating the SSH sea likely is not: if we build it, will they come?
