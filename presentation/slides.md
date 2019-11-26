@@ -238,7 +238,7 @@ Analysis Methods for Political Texts](https://web.stanford.edu/~jgrimmer/tad2.pd
 
 ![bg left 85%](figures/contribs.svg)
 
-# <!--- fit ---> ⛹🏻‍♂️ 🎓
+# Defense! ⛹🏻‍♂️ 🎓
 
 ---
 <!--- _class: invert --->
