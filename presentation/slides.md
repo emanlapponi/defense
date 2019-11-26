@@ -20,15 +20,32 @@ size: 16:9
 
 ---
 
-# Backdrop
+# 💡 The digital Social Sciences and Humanities (SSH)
 
-International efforts to develop systems that aim at facilitating NLP-based research in traditionally non-technical fields, such as the Social Sciences and the Humanities.
+- Interest in computational methods has grown substantially in the last decade
+- One strain of digital SSH: research that contributes new knowledge, built on "more data than you can read"
+- NLP tools are becoming an integral part of research outside of CS and Linguistics
 
 
+---
 
-![bg right 90%](figures/lapps-grid.png)
-![bg right 70%](figures/clarin-page.png)
-![bg right vertical 70%](figures/clarino-site.png)
+# CLARIN
+
+- International efforts to develop resources and systems that aim at facilitating NLP ❤️ SSH research
+
+- Part of the CLARINO mandate: build a portal for NLP applications running on an HPC cluster, focusing on users with no NLP background
+
+![bg right 100%](figures/clarin-page.png)
+![bg right vertical 100%](figures/clarino-site.png)
+
+---
+
+Undertaking such projects raises questions:
+- What NLP tools are useful, and for what?
+- How should a system the facilitates their use be designed?
+- Can off-the-shelf tools be integrated? 
+- What's a good/scalable/coherent way to do it?
+- And what's the point?
 
 ---
 
@@ -53,7 +70,7 @@ We initiate a collaboration with the Department of Political Science, gather req
 <!--- _class: invert--->
 
 ## Part 1
-# Text-as-data 💡
+# Text-as-data & Political Science💡
 
 ---
 <!--- header: '💡 Text as data' --->
@@ -62,7 +79,7 @@ We initiate a collaboration with the Department of Political Science, gather req
 
 - Typically, empirical inference in PolSci is based on numerical data
 - (Relatively) recently, text has seen a surge of interest in the field
-- For example, a lot of work uses `Wordfish`* to place words on a left-right political axis 
+- For example: place words on a left-right political axis*
 
 ![bg right 100%](figures/wordfish.png)
 <!--- _footer: '* [A Scaling Model for Estimating Time-Series Party
@@ -77,7 +94,7 @@ ideology of the speaker.
 - Use party classification scores for parliamentary analysis!
 
 ---
-### Measure polarization
+### For example: Measure polarization
 
 - Higher accuracy → more polarized
 - Hirst et al* do it for the Canadian Parliament
@@ -123,20 +140,9 @@ Analysis Methods for Political Texts](https://web.stanford.edu/~jgrimmer/tad2.pd
 
 - Thoroughly navigating the NLP sea before doing political analysis means no
 political analysis 
-
 - Building NLP-for-SSH infrastructures might just be a good idea
+- Doing it without navigating the SSH sea likely is not: if we build it, will they come?
 
-- Doing it without navigating the PolSci sea is not
-
----
-# Getting our feet wet
-
-- Preliminary experiments, going off the recipe
-- Signs that linguistic features might contribute positively to these methods
-
-![bg right 70%](figures/eu-preliminary.png)
-
-<!--- _footer: '* [Predicting Party Affiliations from European Parliament Debates](https://www.aclweb.org/anthology/W14-2516.pdf)' --->
 
 ---
 <!--- _paginate: false--->
@@ -144,20 +150,16 @@ political analysis
 <!--- _header: '' --->
 
 ## Part 2
-# Tools, workflows and portals 🎨
+#  LAP & LXF 🎨 🏗
 
 ---
-<!--- header: '🎨 Tools, annotations and portals' --->
+<!--- header: '🎨🏗 LAP & LXF' --->
 
 # What is an NLP tool?
 
 - Tokenizers, PoS taggers, lemmatizers, syntactic parsers +++
 - Come in many flavors, adhere to different traditions, have different pros and cons (depending on the task)
 - It's a good idea to test different tools before settling for one for a given task!
-
----
-
-![bg 60%](figures/prep-cockroach.png)
 
 ---
 # Tool interoperability and interchange formats
@@ -192,32 +194,21 @@ political analysis
 ![bg 80%](figures/workflow.svg)
 
 ---
-# What is a portal?
+## What is a portal?
 
 - No local installation is required
 - Data upload and results download
 - Graphical user interface to configuring and running tools
+- Not developer tools like **NLTK** and **SpaCy**!
 
-##### Not developer tools like **NLTK** and **SpaCy**
-
----
-<!--- _paginate: false--->
-<!--- _class: invert--->
-<!--- _header: '' --->
-
-## Part 3
-#  LAP & LXF 🎨 🏗
+## What is big data?
+- Hard to process on a laptop
 
 ---
-<!--- header: '🎨🏗 LAP & LXF' --->
 
-## Architecture
+# LAP Architecture
 
-- These bulletpoints are intense
-- Explain what the Library and the Tree are, and what do they enable
-- Explain that we don't have time to go more in depth cuz we about to talk about LXF
-
-![bg right 80%](figures/lap-diagram.svg)
+![bg width:500px](figures/lap-diagram.svg)
 
 ---
 
@@ -309,12 +300,6 @@ political analysis
 - An open, plug-and-research resource for text-as-data experimentation
 
 ---
-
-![width:430](figures/keyage.png) ![width:550](figures/slogans.png)
-
-The meta data variables are useful on statistics (what do younger vs. older MEP talk about?), and can be used in combination with the linguistic annotations to quickly go from raw data to policies
-
----
 # <!--- fit ---> F1 as a quantity of interest, feat. Norway
 
 - Marked improvements with better normalization, disambiguation and context
@@ -351,20 +336,55 @@ Using the meta-data variables, we re-evaluate our best predictions using meaning
 <!--- _class: invert--->
 <!--- _header: '' --->
 
-# <!--- fit ---> Conclusions and future work 🎨 🏗 💡
+# Conclusions 🎨 🏗 💡
 
 ---
 <!--- header: '📋 Conclusions and future work' --->
 
-## 💡 Text-as-data methods need NLP
-- Recipes don't take into account many NLP "dimensions"
-- Facilitating access to NLP tools and techniques might just be a good idea after all.
+# 
 
-## 🎨 🏗 LAP & LXF
-
-ølkjdfahskliujhdsfkljhdvfs
-
-## 💡 Talk of Norway
-foo bar
+- Easy access to NLP pre-preprocessing tools benefits political research and analysis
+- Heterogenous workflows of off-the-shelf NLP tools can be made easily accessible without sacrificing scalability and flexibility
 
 ---
+
+#### 🎨 🏗 LAP & LXF
+
+- A modular system for HPC-ready, user friendly language annotations
+- Scalable to large volumes of data and heterogenous linguistic (and non-linguistic!) annotations
+
+---
+
+#### 💡 Talk of Norway
+- An open resource for parliamentary analysis, informed by and developed with Political Scientists
+- The first ToN experiments show substantive differences in the analyses built on party classification experiments
+
+---
+<!--- _class: invert --->
+<!--- header: 'extras' --->
+
+# Director's cut 🎬
+
+---
+# Getting our feet wet
+
+- Preliminary experiments, going off the recipe
+- Signs that linguistic features might contribute positively to these methods
+
+![bg right 70%](figures/eu-preliminary.png)
+
+<!--- _footer: '* [Predicting Party Affiliations from European Parliament Debates](https://www.aclweb.org/anthology/W14-2516.pdf)' --->
+
+---
+
+![width:430](figures/keyage.png) ![width:550](figures/slogans.png)
+
+On their own, the meta data variables are useful for statistics (what do younger vs. older MEP talk about?), and can be used in combination with the linguistic annotations to quickly go from raw data to policies
+
+---
+
+![bg 60%](figures/periodwise-graph.png)
+
+---
+
+![bg 40%](figures/committees.png)
