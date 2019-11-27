@@ -128,7 +128,7 @@ Analysis Methods for Political Texts](https://web.stanford.edu/~jgrimmer/tad2.pd
 # Text-as-data pre-processing cookbook
 
 - The recipe becomes gospel
-- Even attempts to mitigate the effects of pre-processing on political analysis provide a recipe using the same ingredients*
+- Even attempts to address the effects of pre-processing on political analysis provide a recipe using the same ingredients*
 - Experiments miss out on potentially useful (and contentfully significant) tools and techniques!
 
 <!--- _footer: '* [Text Preprocessing For Unsupervised Learning: Why It Matters, When It Misleads, And What To Do About It](https://www.cambridge.org/core/journals/political-analysis/article/text-preprocessing-for-unsupervised-learning-why-it-matters-when-it-misleads-and-what-to-do-about-it/AA7D4DE0AA6AB208502515AE3EC6989E)' --->
