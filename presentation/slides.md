@@ -49,23 +49,6 @@ size: 16:9
 
 ---
 
-<!---
-# Questions
-
-- What kind of annotations and processing tools are needed by the end users?
-- How should the system be designed? 
-- Can off-the-shelf NLP tools, with their different input and output representations, be integrated into a coherent platform?
-- Can we balance ease of use with scalability to potentially large data volumes? 
-- And, crucially, is the kind of processing provided by these platforms useful to the target audience?
-
---->
-
-We initiate a collaboration with the Department of Political Science, gather requirements by partaking in parliamentary analysis using NLP methods, design and implement a portal for facilitating access to NLP tools, and validate our efforts through Political Science research.
-
-![bg left 80%](figures/contribs.svg)
-
----
-
 <!--- _paginate: false--->
 <!--- _class: invert--->
 
@@ -219,7 +202,7 @@ Analysis Methods for Political Texts](https://web.stanford.edu/~jgrimmer/tad2.pd
 <!--- header: '📋 Conclusions and future work' --->
 
 - Heterogenous workflows of off-the-shelf NLP tools can be made easily accessible without sacrificing scalability and flexibility
-- Easy access to NLP pre-preprocessing tools benefits political research and analysis
+- Easy access to NLP pre-processing tools benefits political research and analysis
 
 ---
 
@@ -369,3 +352,20 @@ On their own, the meta data variables are useful for statistics (what do younger
 political analysis 
 - Building NLP-for-SSH infrastructures might just be a good idea
 - Doing it without navigating the SSH sea likely is not: if we build it, will they come?
+
+---
+
+<!---
+# Questions
+
+- What kind of annotations and processing tools are needed by the end users?
+- How should the system be designed? 
+- Can off-the-shelf NLP tools, with their different input and output representations, be integrated into a coherent platform?
+- Can we balance ease of use with scalability to potentially large data volumes? 
+- And, crucially, is the kind of processing provided by these platforms useful to the target audience?
+
+--->
+
+We initiate a collaboration with the Department of Political Science, gather requirements by partaking in parliamentary analysis using NLP methods, design and implement a portal for facilitating access to NLP tools, and validate our efforts through Political Science research.
+
+![bg left 80%](figures/contribs.svg)
