@@ -66,21 +66,21 @@ ideology of the speaker.
 ---
 ### For example: Measure polarization
 
-- Higher accuracy → more polarized
-- Hirst et al* do it for the Canadian Parliament
+- Higher accuracy → more polarized*
+- Hirst et al** do it for the Canadian Parliament
     - and find that position is a much stronger signal than policy!
-
 
 ### ...Or ask more involved questions
 
 - Are newcomers to the EU parliament joining groups based on ideology or convenience?***
 
 <!--- _footer: '
-* [Party Status as a Confound in the Automatic Classification of Political Speech by Ideology.](https://pdfs.semanticscholar.org/e3c5/8ec78ea408e165857709d131dc76b48b1e02.pdf?_ga=2.90516889.224407089.1573656100-759081113.1570025983) 
 
-** [Classification Accuracy as a Substantive Quantity of
+* [Classification Accuracy as a Substantive Quantity of
 Interest: Measuring Polarization in Westminster
 Systems](https://www.nyu.edu/projects/spirling/documents/PolLetter.pdf)
+
+** [Party Status as a Confound in the Automatic Classification of Political Speech by Ideology.](https://pdfs.semanticscholar.org/e3c5/8ec78ea408e165857709d131dc76b48b1e02.pdf?_ga=2.90516889.224407089.1573656100-759081113.1570025983) 
 
 *** [Lost in Translation? Predicting Party Group Affiliation from European Parliament Debates](https://pdfs.semanticscholar.org/398d/b35d1d50f96df6f7d841b23960a9979b8066.pdf?_ga=2.160769342.224407089.1573656100-759081113.1570025983)' --->
 
@@ -136,8 +136,8 @@ An abstract data model: represent arbitrary text **annotations** in a graph. **N
 
 ---
 
-- **LXF** Builds on and expands LAF by solving intermediate graph representations: focus on building a graph incrementally
-- Achieves scalability, both representational and computational, by staying faithful to the original design
+- **LXF** builds on and expands LAF, focusing on intermediate graph representations and building a graph incrementally
+- Achieves scalability, both representational and computational, while staying faithful to the original design
 
 ![bg right 100%](figures/lxf-layers.svg)
 
