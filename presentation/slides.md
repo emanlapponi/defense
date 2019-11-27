@@ -53,18 +53,7 @@ size: 16:9
 <!--- _class: invert--->
 
 ## Part 1
-# Text-as-data & Political Science💡
-
----
-<!--- header: '💡 Text as data' --->
-
-### Using **NLP** techniques for political analysis
-
-- For example: place words on a left-right political axis*
-
-![bg right 100%](figures/wordfish.png)
-<!--- _footer: '* [A Scaling Model for Estimating Time-Series Party
-Positions from Texts](http://www.wordfish.org/uploads/1/2/9/8/12985397/slapin_proksch_ajps_2008.pdf)' --->
+# Political Science & Text-as-data 💡
 
 ---
 # <!--- fit ---> 💡 Classifier evaluation scores as a quantity of interest
@@ -80,7 +69,6 @@ ideology of the speaker.
 - Higher accuracy → more polarized
 - Hirst et al* do it for the Canadian Parliament
     - and find that position is a much stronger signal than policy!
-- Peterson and Spirling** do it for the English Parliament over ~80 years
 
 
 ### ...Or ask more involved questions
@@ -100,9 +88,9 @@ Systems](https://www.nyu.edu/projects/spirling/documents/PolLetter.pdf)
 ---
 # Text-as-data pre-processing cookbook
 
-- Grimmer and Stewart (2013)* survey the text-as-data field, warning of the dangers of "one-size-fits-all" experiments
-- They also introduce a recipe for pre-processing, with emphasis on stemming and normalization
-- Dismissal of expensive techniques that "do little to enhance performance", e.g. ngram generation, lemmatization and so on
+- 🏅 Grimmer and Stewart (2013)* survey the text-as-data field, warning of the dangers of "one-size-fits-all" experiments
+- 🤔 They also introduce a recipe for pre-processing, with emphasis on stemming and normalization
+- 🙄 Dismissal of expensive techniques that "do little to enhance performance", e.g. context, disambiguation, lemmatization and so on
 
 <!--- _footer: '* [Text as Data: The Promise and Pitfalls of Automatic Content
 Analysis Methods for Political Texts](https://web.stanford.edu/~jgrimmer/tad2.pdf)' --->
@@ -111,7 +99,7 @@ Analysis Methods for Political Texts](https://web.stanford.edu/~jgrimmer/tad2.pd
 # Text-as-data pre-processing cookbook
 
 - The recipe becomes gospel
-- Even attempts to address the effects of pre-processing on political analysis provide a recipe using the same ingredients*
+- Even attempts to address the effects of pre-processing on political analysis provide alternate recipes using the same ingredients*
 - Experiments miss out on potentially useful (and contentfully significant) tools and techniques!
 
 <!--- _footer: '* [Text Preprocessing For Unsupervised Learning: Why It Matters, When It Misleads, And What To Do About It](https://www.cambridge.org/core/journals/political-analysis/article/text-preprocessing-for-unsupervised-learning-why-it-matters-when-it-misleads-and-what-to-do-about-it/AA7D4DE0AA6AB208502515AE3EC6989E)' --->
@@ -140,15 +128,18 @@ Analysis Methods for Political Texts](https://web.stanford.edu/~jgrimmer/tad2.pd
 ---
 ## The **L**anguage **A**nnotation **F**ramework*
 
-- **Regions**: Standoff references to the media being annotated
-- **Graph elements**: A graph structure consisting of **nodes**, **edges** and **links** to regions, organizing the structure and the relations of the linguistic information
-- **Annotations**: Feature structures containing the actual linguistic information, associated with nodes and edges
+An abstract data model: represent arbitrary text **annotations** in a graph. **Nodes** and **edges** organize the structure and the relations of the annotations, and refer to **regions** in the original data.
+- Purpose: full interoperability across annotation formats.
+- Machine readable instantiation of the data model exist, but are focused on _representation_ rather than _interchange_.
 
 <!--- _footer: '* [The Linguistic Annotation Framework. A Standard for Annotation Interchange and Merging](https://link.springer.com/article/10.1007/s10579-014-9268-1)' --->
 
 ---
 
-![bg 60%](figures/lxf-layers.svg)
+- **LXF** Builds on and expands LAF by solving intermediate graph representations: focus on building a graph incrementally
+- Achieves scalability, both representational and computational, by staying faithful to the original design
+
+![bg right 100%](figures/lxf-layers.svg)
 
 ---
 
@@ -230,6 +221,18 @@ Analysis Methods for Political Texts](https://web.stanford.edu/~jgrimmer/tad2.pd
 # Director's cut 🎬
 
 ---
+<!--- header: '💡 Text as data' --->
+
+### Using **NLP** techniques for political analysis
+
+- For example: place words on a left-right political axis*
+
+![bg right 100%](figures/wordfish.png)
+<!--- _footer: '* [A Scaling Model for Estimating Time-Series Party
+Positions from Texts](http://www.wordfish.org/uploads/1/2/9/8/12985397/slapin_proksch_ajps_2008.pdf)' --->
+
+---
+
 # Getting our feet wet
 
 - Preliminary experiments, going off the recipe
