@@ -23,7 +23,7 @@ size: 16:9
 # 💡 The digital Social Sciences and Humanities (SSH)
 
 - Interest in computational methods has grown substantially in the last decade
-- One strain of digital SSH: research that contributes new knowledge, built on "more data than you can read"
+- One strain of digital SSH: research built on "more data than you can read"
 - NLP tools are becoming an integral part of research outside of CS and Linguistics
 
 
@@ -130,7 +130,7 @@ Analysis Methods for Political Texts](https://web.stanford.edu/~jgrimmer/tad2.pd
 
 An abstract data model: represent arbitrary text **annotations** in a graph. **Nodes** and **edges** organize the structure and the relations of the annotations, and refer to **regions** in the original data.
 - Purpose: full interoperability across annotation formats.
-- Machine readable instantiation of the data model exist, but are focused on _representation_ rather than _interchange_.
+- Machine readable instantiations of the data model exist, but are focused on _representation_ rather than _interchange_.
 
 <!--- _footer: '* [The Linguistic Annotation Framework. A Standard for Annotation Interchange and Merging](https://link.springer.com/article/10.1007/s10579-014-9268-1)' --->
 
@@ -142,15 +142,6 @@ An abstract data model: represent arbitrary text **annotations** in a graph. **N
 ![bg right 100%](figures/lxf-layers.svg)
 
 ---
-
-<!---
-# LXF, LIF & DKPROCore Type System
-
-- **DKPROCore Type System** has the weakest support to provenance and alternative segmentations
-- **LXF** is the interchange representation most faithful to LAF
-
-
---->
 
 <!--- _paginate: false--->
 <!--- _class: invert--->
