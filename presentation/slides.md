@@ -41,7 +41,7 @@ size: 16:9
 
 ### 🤔 Undertaking such a project raises questions:
 
-- How should a system the facilitates their use be designed?
+- How should a system the facilitates NLP tools use be designed?
 - Can off-the-shelf tools be integrated? 
 - What's a good/scalable/coherent way to do it?
 - And what's the point?
@@ -344,3 +344,4 @@ On their own, the meta data variables are useful for statistics (what do younger
 political analysis 
 - Building NLP-for-SSH infrastructures might just be a good idea
 - Doing it without navigating the SSH sea likely is not: if we build it, will they come?
+

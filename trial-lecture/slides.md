@@ -385,7 +385,7 @@ print(all([
 
 ---
 
-# 🧶 Conclusions
+# 🧶 In short
 
 - End to end systems in NLP: from pipelines, through neural pipelines, to one neural model
 - We took a historical, research-based look at this trend through architectural developments in a specific task: NSR
