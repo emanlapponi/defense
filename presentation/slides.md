@@ -188,7 +188,7 @@ An abstract data model: represent arbitrary text **annotations** in a graph. **N
 
 # 🎨 🏗 LAP & LXF 
 - A modular system for HPC-ready, user friendly language annotations
-- Scalable to large volumes of data and heterogenous linguistic (and non-linguistic!) annotation
+- Scalable to large volumes of data and heterogenous linguistic (and non-linguistic!) annotations
 
 ---
 
